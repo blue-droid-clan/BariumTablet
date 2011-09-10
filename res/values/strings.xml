@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BariumTablet</string>
+    
+    <string name="sensor_name">Name</string>
+    <string name="sensor_type">Type</string>
+    <string name="sensor_vendor">Vendor</string>
+    <string name="sensor_version">Version</string>
+    <string name="sensor_power_use">Power Use</string>
+    <string name="sensor_resolution">Resolution</string>
+    <string name="sensor_max_range">Max Range</string>
+    <string name="sensor_min_delay">Min Delay</string>
+    
+    <string name="sensor_name_accelerometer">Accelerometer</string>
+    <string name="sensor_name_gravity">Gravity</string>
+    <string name="sensor_name_gyroscope">Gyroscope</string>
+    <string name="sensor_name_light">Light</string>
+    <string name="sensor_name_linearAcceleration">Linear Acceleration</string>
+    <string name="sensor_name_magneticField">Magnetic Field</string>
+    <string name="sensor_name_orientation">Orientation</string>
+    <string name="sensor_name_pressure">Pressure</string>
+    <string name="sensor_name_proximity">Proximity</string>
+    <string name="sensor_name_rotationVector">Rotation Vector</string>
+    <string name="sensor_name_temperature">Temperature</string>
+    <string name="sensor_name_unknown">Unknown</string>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_height="match_parent" android:layout_width="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:orientation="vertical" android:layout_height="wrap_content">
+        <LinearLayout android:id="@+id/sensorDataHeader" android:layout_height="wrap_content" android:layout_width="match_parent">
+            <TextView android:text="Sensor Human Readable Name View" android:layout_width="match_parent" android:gravity="center" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/sensorHumanReadableNameView"></TextView>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:padding="5dp" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/basic_sensor_data_bg">
+            <TextView android:text="sensorNameView" android:layout_width="match_parent" android:gravity="left" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_height="wrap_content" android:id="@+id/sensorNameView" style="@style/sensor_data_value_text_style" android:paddingLeft="10dp"></TextView>
+            <TableLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="5dp">
+                <TableRow android:layout_height="match_parent" android:orientation="horizontal" android:layout_width="match_parent">
+                    <TableLayout android:layout_height="match_parent" android:layout_width="0dp" android:orientation="vertical" android:layout_weight="1" android:paddingRight="5dp">
+                        <TableRow android:id="@+id/sensorTypeRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_type" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorTypeView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorTypeView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                        <TableRow android:id="@+id/sensorVendorRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_vendor" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorVendorView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorVendorView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                        <TableRow android:id="@+id/sensorVersionRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_version" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorVersionView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorVersionView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                    </TableLayout>
+                    <TableLayout android:layout_height="match_parent" android:paddingLeft="5dp" android:layout_width="0dp" android:layout_weight="1">
+                        <TableRow android:id="@+id/sensorPowerUseRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_power_use" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorPowerUseView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorPowerUseView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                        <TableRow android:id="@+id/sensorResolutionRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_resolution" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorResolutionView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorResolutionView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                        <TableRow android:id="@+id/sensorMaxRangeRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_max_range" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorMaxRangeView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorMaxRangeView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                        <TableRow android:id="@+id/sensorMinDelayRow" android:layout_height="wrap_content" android:layout_width="match_parent" android:background="@drawable/table_cell_bg">
+                            <TextView android:layout_height="wrap_content" android:text="@string/sensor_min_delay" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_label_text_style"></TextView>
+                            <TextView android:layout_height="wrap_content" android:text="sensorMinDelayView" android:gravity="right" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="0dp" android:id="@+id/sensorMinDelayView" android:ellipsize="middle" android:layout_weight="1" style="@style/sensor_data_value_text_style" android:paddingLeft="3dp"></TextView>
+                        </TableRow>
+                    </TableLayout>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:orientation="vertical" android:layout_height="match_parent" android:gravity="center" android:background="@drawable/basic_sensor_realtime_data_bg" android:id="@+id/basic_sensor_realtime_data_container">
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:text="Sensor Realtime Data" android:layout_width="match_parent" android:gravity="center" android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
+    
+</LinearLayout>

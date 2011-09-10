@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:id="@+id/available_sensors_container" android:orientation="vertical">
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_weight="1" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:id="@+id/proximity_container" android:layout_width="wrap_content" android:background="@drawable/proximity_sensor_data_bg" android:layout_height="match_parent" android:layout_weight="25"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/accelerometer_container" android:background="@drawable/accelerometer_sensor_data_bg" android:layout_height="match_parent" android:layout_width="wrap_content" android:layout_weight="25"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/gravity_container" android:layout_width="wrap_content" android:background="@drawable/gravity_sensor_data_bg" android:layout_height="match_parent" android:layout_weight="25"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/gyroscope_container" android:layout_width="wrap_content" android:background="@drawable/gyroscope_sensor_data_bg" android:layout_height="match_parent" android:layout_weight="25"></LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout2" android:layout_width="match_parent" android:layout_weight="1" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:id="@+id/orientation_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/orientation_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/linear_acceleration_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/linear_acceleration_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/magnetic_field_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/magnetic_field_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/temperature_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/temperature_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_weight="1" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:id="@+id/rotation_vector_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/rotation_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/unknown_sensor_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/unknown_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/light_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/light_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/pressure_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/pressure_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
+    </LinearLayout>
+    
+</LinearLayout>

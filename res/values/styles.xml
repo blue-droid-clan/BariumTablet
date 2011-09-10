@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="sensor_data_text_style">
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    
+    <style name="sensor_data_label_text_style" parent="sensor_data_text_style"/>
+    
+    <style name="sensor_data_value_text_style" parent="sensor_data_text_style">
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+</resources>

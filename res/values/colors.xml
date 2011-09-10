@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent37">#37ffffff</color>
+    <color name="transparent77">#77ffffff</color>
+    
+    <color name="table_cell_bg">#374c4c4c</color>
+    <color name="basic_sensor_data_bg">#774c4c4c</color>
+    <color name="basic_sensor_realtime_data_bg">#374c4c4c</color>
+    
+    <color name="basic_sensor_data_border">#77777777</color>
+    <color name="basic_sensor_realtime_data_border">#37777777</color>
+    
+    <color name="proximity">#ff191919</color>
+    <color name="accelerometer">#ffc70000</color>
+    <color name="gravity">#ff007700</color>
+    <color name="gyroscope">#0000c7</color>
+    
+    <color name="orientation">#ff333333</color>
+    <color name="linear_acceleration">#ffff8000</color>
+    <color name="magnetic_field">#ffc6aa00</color>
+    <color name="temperature">#ff008040</color>
+    
+    <color name="rotation">#ff4c4c4c</color>
+    <color name="unknown">#ff666666</color>
+    <color name="light">#ff009483</color>
+    <color name="pressure">#ff804000</color>
+    
+</resources>
