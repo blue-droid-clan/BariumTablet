@@ -1,0 +1,19 @@
+To Do
+
+* each sensor is a fragment
+    * derives from BasicSensorDataFragment
+
+* instead of detecting the available sensors, each sensor fragment detects if its underlying sensor is available
+    * use AsyncLoader mechanism
+        public abstract class BaseSensorDetector<T> extends AsyncTaskLoader<T> implements LoaderManager.LoaderCallbacks {
+            // returns null if sensor is not available
+            public abstract Sensor getDefaultSensorForType(SensorType sensorType);
+            public abstract Loader<T> createLoader(int id, Bundle args);
+            
+            public Loader<T> onCreateLoader(int id, Bundle args) {
+                return createLoader(id, args);
+            }
+        }
+
+* real-time data updates
+    * display updated values of a sensor in real-time

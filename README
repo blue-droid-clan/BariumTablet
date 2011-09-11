@@ -1,6 +1,13 @@
 Android App: displays data from the sensors that are available on a device.
 
 Release Notes
+	Version 0.0.3:
+		* Realtime display of sensor event values
+		
+	Version 0.0.2:
+		* Changed default colors of some of the sensors
+		* Displays sensor name as part of real-time data header title
+		
 	Version 0.0.1:
 		* Displays each sensor's basic data in a widget whose position is fixed
 

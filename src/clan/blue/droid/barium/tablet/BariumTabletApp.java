@@ -13,24 +13,48 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import clan.blue.droid.barium.tablet.data.AvailableSensors;
+import clan.blue.droid.barium.tablet.sensor.fragment.BasicSensorDataFragment;
 import clan.blue.droid.common.android.sensor.SensorType;
 
 import com.codeswimmer.android.fragments.FragmentHelper;
 
+@SuppressWarnings("serial") 
 public class BariumTabletApp {
     @SuppressWarnings("unused")
     private static final String TAG = BariumTabletApp.class.getSimpleName();
+    private static final Integer[] UNKNOWN_REALTIME_RES_IDS = new Integer[] {};
+    
     private static final Map<SensorType, Integer> sensorDisplaysMap = new ConcurrentHashMap<SensorType, Integer>();
     private static final Map<SensorType, Integer> sensorHumanReadableNamesMap = new ConcurrentHashMap<SensorType, Integer>();
+    private static final Map<SensorType, Integer[]> sensorRealtimeLabelsMap = new ConcurrentHashMap<SensorType, Integer[]>();
+    
+    private static final Integer[] xyzResIds = { R.string.x_axis, R.string.y_axis, R.string.z_axis, };
+    
+    private static final Integer[] accelerometerResIds = xyzResIds;
+    private static final Integer[] gravityResIds = xyzResIds;
+    private static final Integer[] gyroscopeResIds = xyzResIds;
+    private static final Integer[] lightResIds = { R.string.ambient_light, null, null };
+    private static final Integer[] linearAcceleartionResIds = xyzResIds;
+    private static final Integer[] magneticFieldResIds = xyzResIds;
+    private static final Integer[] orientationResIds = xyzResIds;
+    private static final Integer[] proximityResIds = xyzResIds;
+    private static final Integer[] pressureResIds = xyzResIds;
+    private static final Integer[] rotationVectorResIds = xyzResIds;
+    private static final Integer[] temperatureResIds = xyzResIds; // Not sure about this one
     
     private static SensorManager sensorManager;
     private static FragmentHelper fragmentHelper;
     
     public static final void initialize(Activity activity) {
-        initializeSensorDisplaysMap();
-        initializeSensorHumanReadableNamesMap();
+        initializeMaps();
         initilizeSensorManager(activity.getApplicationContext());
         initializeFragmentHelper(activity.getFragmentManager());
+    }
+    
+    private static final void initializeMaps() {
+        initializeSensorDisplaysMap();
+        initializeSensorHumanReadableNamesMap();
+        initializeSensorRealtimeLabelsMap();
     }
     
     private static final void initilizeSensorManager(Context context) {
@@ -70,6 +94,20 @@ public class BariumTabletApp {
         sensorHumanReadableNamesMap.put(SensorType.Temperature, R.string.sensor_name_temperature);
     }
     
+    private static final void initializeSensorRealtimeLabelsMap() {
+        sensorRealtimeLabelsMap.put(SensorType.Accelerometer, accelerometerResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Gravity, gravityResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Gyroscope, gyroscopeResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Light, lightResIds);
+        sensorRealtimeLabelsMap.put(SensorType.LinearAcceleration, linearAcceleartionResIds);
+        sensorRealtimeLabelsMap.put(SensorType.MagneticField, magneticFieldResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Orientation, orientationResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Pressure, pressureResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Proximity, proximityResIds);
+        sensorRealtimeLabelsMap.put(SensorType.RotationVector, rotationVectorResIds);
+        sensorRealtimeLabelsMap.put(SensorType.Temperature, temperatureResIds);
+    }
+    
     public static Integer sensorDisplayContainerResIdForSensorType(SensorType sensorType) {
         Integer result = sensorDisplaysMap.get(sensorType);
         if (result == null)
@@ -81,6 +119,13 @@ public class BariumTabletApp {
         Integer result = sensorHumanReadableNamesMap.get(sensorType);
         if (result == null)
             result = R.string.sensor_name_unknown;
+        return result;
+    }
+    
+    public static Integer[] sensorRealtimeLabelsResIdsForSensorType(SensorType sensorType) {
+        Integer[] result = sensorRealtimeLabelsMap.get(sensorType);
+        if (result == null)
+            result = UNKNOWN_REALTIME_RES_IDS;
         return result;
     }
     
@@ -150,5 +195,33 @@ public class BariumTabletApp {
     private static final void throwErrorIfFragmentManagerNotInitialized() throws RuntimeException {
         if (fragmentHelper == null)
             throw new RuntimeException("fragmentHelper must be initialized by calling initializeFragmentHelper(FragmentManager);");
+    }
+    
+    private static class SensorFragmentMap extends ConcurrentHashMap<SensorType, BasicSensorDataFragment> {}
+    
+    public static final class SensorFragmentManager {
+        private static final Map<SensorType, BasicSensorDataFragment> availabileSensorFragments = new SensorFragmentMap();
+        
+        public static final void addSensorFragment(SensorType sensorType, BasicSensorDataFragment fragment) {
+            if (sensorType == null || fragment == null)
+                return;
+            availabileSensorFragments.put(sensorType, fragment);
+        }
+        
+        public static final BasicSensorDataFragment removeSensorFragment(SensorType sensorType) {
+            if (sensorType == null)
+                return null;
+            return availabileSensorFragments.remove(sensorType);
+        }
+        
+        public static final BasicSensorDataFragment getSensorFragment(SensorType sensorType) {
+            if (sensorType == null)
+                return null;
+            return availabileSensorFragments.get(sensorType);
+        }
+        
+        public static final Collection<BasicSensorDataFragment> getSensorFragments() {
+            return availabileSensorFragments.values();
+        }
     }
 }

@@ -15,14 +15,24 @@
     <color name="gravity">#ff007700</color>
     <color name="gyroscope">#0000c7</color>
     
-    <color name="orientation">#ff333333</color>
+    <color name="orientation">#ff0080FF</color>
     <color name="linear_acceleration">#ffff8000</color>
     <color name="magnetic_field">#ffc6aa00</color>
     <color name="temperature">#ff008040</color>
     
-    <color name="rotation">#ff4c4c4c</color>
     <color name="unknown">#ff666666</color>
+    <color name="rotation">#ffc700c7</color>
     <color name="light">#ff009483</color>
     <color name="pressure">#ff804000</color>
     
 </resources>
+
+
+<!--
+     
+    <color name="orientation">#ff333333</color>
+    <color name="rotation">#ff4c4c4c</color> 
+    <color name="unknown">#ff666666</color>
+
+-->
+

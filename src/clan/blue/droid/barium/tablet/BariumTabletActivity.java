@@ -47,6 +47,7 @@ public class BariumTabletActivity extends Activity {
     private void onAvailableSensorsDetected() {
         createSensorDisplays();
         removeEmptySensorDisplays();
+        AvailableSensors.registerSensorListeners();
     }
     
     private void removeEmptySensorDisplays() {
@@ -56,7 +57,6 @@ public class BariumTabletActivity extends Activity {
             View view = mainView.findViewById(resId);
             if (view != null)
                 view.setVisibility(View.GONE);
-                
         }
     }
     
@@ -79,6 +79,7 @@ public class BariumTabletActivity extends Activity {
         BasicSensorDataFragment fragment = new BasicSensorDataFragment(sensor);
         updateSensorDataFragmentHumanReadableNameDisplay(sensorType, fragment);
         addSensorDataFragment(sensor, sensorType, fragment);
+        BariumTabletApp.SensorFragmentManager.addSensorFragment(sensorType, fragment);
     }
     
     private void updateSensorDataFragmentHumanReadableNameDisplay(SensorType sensorType, BasicSensorDataFragment fragment) {
@@ -110,6 +111,18 @@ public class BariumTabletActivity extends Activity {
     private int determineSensorHumanReadableName(SensorType sensorType) {
         int resId = BariumTabletApp.sensorHumanReadableNameResIdForSensorType(sensorType);
         return resId;
+    }
+    
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AvailableSensors.unregisterSensorListeners();
+    }
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AvailableSensors.registerSensorListeners();
     }
     
     private class AvailableSensorsDetectedReceiver implements IntentReceiver {

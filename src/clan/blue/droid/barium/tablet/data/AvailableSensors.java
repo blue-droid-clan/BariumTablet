@@ -6,9 +6,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import android.content.Context;
 import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.util.Log;
+import clan.blue.droid.barium.tablet.BariumTabletApp;
 import clan.blue.droid.barium.tablet.sensor.detect.DetectAvailableSensorsTask;
 import clan.blue.droid.barium.tablet.sensor.detect.OnSensorAvailableListener;
+import clan.blue.droid.barium.tablet.sensor.fragment.BasicSensorDataFragment;
 import clan.blue.droid.common.android.sensor.SensorType;
 
 public class AvailableSensors {
@@ -43,6 +46,40 @@ public class AvailableSensors {
     
     public static Collection<Sensor> getAvailableSensorsAsCollection() {
         return availableSensors.values();
+    }
+    
+    public static boolean sensorsAreAvailable() {
+        return availableSensors.isEmpty() == false;
+    }
+    
+    public static void registerSensorListeners() {
+        if (sensorsAreAvailable())
+            for (Sensor sensor : getAvailableSensorsAsCollection())
+                registerSensorListener(sensor);
+    }
+    
+    private static boolean registerSensorListener(Sensor sensor) {
+        SensorType sensorType = SensorType.fromTypeCode(sensor.getType());
+        BasicSensorDataFragment fragment = BariumTabletApp.SensorFragmentManager.getSensorFragment(sensorType);
+        if (fragment == null)
+            return false;
+        boolean result = BariumTabletApp.getSensorManager().registerListener(fragment, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        return result;
+    }
+
+    public static void unregisterSensorListeners() {
+        if (sensorsAreAvailable())
+            for (Sensor sensor : getAvailableSensorsAsCollection())
+                unregisterSensorListener(sensor);
+    }
+    
+    private static void unregisterSensorListener(Sensor sensor) {
+        SensorType sensorType = SensorType.fromTypeCode(sensor.getType());
+        BasicSensorDataFragment fragment = BariumTabletApp.SensorFragmentManager.getSensorFragment(sensorType);
+        if (fragment == null)
+            return;
+        
+        BariumTabletApp.getSensorManager().unregisterListener(fragment);
     }
     
     private static class SensorAvailableListener implements OnSensorAvailableListener {

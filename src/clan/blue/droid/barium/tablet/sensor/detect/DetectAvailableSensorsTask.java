@@ -1,24 +1,27 @@
 package clan.blue.droid.barium.tablet.sensor.detect;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.AsyncTask;
+import android.util.Log;
+import clan.blue.droid.barium.tablet.BariumTabletApp;
+import clan.blue.droid.common.android.sensor.SensorType;
+
 import com.codeswimmer.android.dispatch.IntentBroadcaster;
 import com.codeswimmer.android.dispatch.MessageDispatcher;
 import com.codeswimmer.common.contract.Contract;
 
-import clan.blue.droid.barium.tablet.BariumTabletApp;
-import clan.blue.droid.common.android.sensor.SensorType;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.os.AsyncTask;
-import android.util.Log;
-
 public class DetectAvailableSensorsTask extends AsyncTask<Void, Void, Void> implements IntentBroadcaster {
     private static final String TAG = DetectAvailableSensorsTask.class.getSimpleName();
-    private Sensor defaultSensor;
-    private OnSensorAvailableListener sensorAvailableListener;
+    private final SensorManager sensorManager;
     private Context context;
+    private OnSensorAvailableListener sensorAvailableListener;
+    private Sensor defaultSensor;
     
     public DetectAvailableSensorsTask(Context context) {
         this.context = context;
+        sensorManager = BariumTabletApp.getSensorManager();
     }
     
     @Override
@@ -33,7 +36,6 @@ public class DetectAvailableSensorsTask extends AsyncTask<Void, Void, Void> impl
     
     private void determineSensorsThatArePresent() {
         Log.i(TAG, String.format("detectDevices() - %s", ""));
-        
         for (SensorType sensorType : SensorType.values())
             if (sensorAdded(sensorType))
                 notifySensorAvailable(sensorType);
@@ -53,7 +55,7 @@ public class DetectAvailableSensorsTask extends AsyncTask<Void, Void, Void> impl
     
     private Sensor getDefaultSensorForType(SensorType sensorType) {
         int type = sensorType.getTypeCode();
-        Sensor defaultSensor = BariumTabletApp.getSensorManager().getDefaultSensor(type);
+        Sensor defaultSensor = sensorManager.getDefaultSensor(type);
         return defaultSensor;
     }
     

@@ -16,8 +16,8 @@
         <LinearLayout android:orientation="vertical" android:id="@+id/temperature_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/temperature_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
     </LinearLayout>
     <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_weight="1" android:layout_height="match_parent">
+        <LinearLayout android:id="@+id/unknown_sensor_container" android:background="@drawable/unknown_sensor_data_bg" android:orientation="vertical" android:layout_height="match_parent" android:layout_width="wrap_content" android:layout_weight="25"></LinearLayout>
         <LinearLayout android:orientation="vertical" android:id="@+id/rotation_vector_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/rotation_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
-        <LinearLayout android:orientation="vertical" android:id="@+id/unknown_sensor_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/unknown_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
         <LinearLayout android:orientation="vertical" android:id="@+id/light_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/light_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
         <LinearLayout android:orientation="vertical" android:id="@+id/pressure_container" android:layout_width="wrap_content" android:layout_weight="25" android:background="@drawable/pressure_sensor_data_bg" android:layout_height="match_parent"></LinearLayout>
     </LinearLayout>

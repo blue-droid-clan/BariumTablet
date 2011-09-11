@@ -11,4 +11,8 @@
         <item name="android:textStyle">bold</item>
     </style>
     
+    <style name="sensor_realtime_value_text_style" parent="sensor_data_text_style">
+        <item name="android:textSize">10sp</item>
+        <item name="android:typeface">monospace</item>
+    </style>
 </resources>

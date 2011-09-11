@@ -23,4 +23,12 @@
     <string name="sensor_name_rotationVector">Rotation Vector</string>
     <string name="sensor_name_temperature">Temperature</string>
     <string name="sensor_name_unknown">Unknown</string>
+    
+    <string name="sensor_realtime_title_msg">%s Realtime</string>
+    
+    <string name="x_axis">X-axis</string>
+    <string name="y_axis">Y-axis</string>
+    <string name="z_axis">Z-axis</string>
+    <string name="ambient_light">Ambient Light</string>
+    
 </resources>
